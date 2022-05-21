@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
 
 
-
     WebDriver driver;
 
     String btnRegistrar = "//*[contains(text(),'Registrar')]"; //cliacar
@@ -19,7 +18,15 @@ public class HomePage {
 
     String fecharModal = "//*[@id='btnCloseModal']";
 
-    public HomePage(WebDriver driverDoTeste){
+    String emailLogin = "//*[@id='__next']/div/div[2]/div/div[1]/form/div[1]/input";
+
+    String senhaLogin = "//*[@id='__next']/div/div[2]/div/div[1]/form/div[2]/div/input";
+
+    String acessar = "//*[contains(text(),'Acessar')]";
+
+    String mensagemBoasVindas = "//p[contains(text(),'bem vindo ao BugBank :)')]";
+
+    public HomePage(WebDriver driverDoTeste) {
         this.driver = driverDoTeste;
     }
 
@@ -37,14 +44,15 @@ public class HomePage {
     }
 
     public void preencherSenha() {
-        driver.findElement(By.xpath(senha)).sendKeys("123456789");
+        driver.findElement(By.xpath(senha)).sendKeys("123456");
 
     }
 
     public void preencherConfirmacaoSenha() {
-        driver.findElement(By.xpath(confirmarSenha)).sendKeys("123456789");
+        driver.findElement(By.xpath(confirmarSenha)).sendKeys("123456");
 
     }
+
     public void clicarCriarComSaldo() {
         driver.findElement(By.xpath(criarComSaldo)).click();
     }
@@ -57,5 +65,20 @@ public class HomePage {
         driver.findElement(By.xpath(fecharModal)).click();
     }
 
+    public void preencheEmailLogin() {
+        driver.findElement(By.xpath(emailLogin)).sendKeys("teste@teste.com.br");
+    }
+
+    public void preencheSenhaLogin() {
+        driver.findElement(By.xpath(senhaLogin)).sendKeys("123456");
+    }
+
+    public void clicarAcessar() {
+        driver.findElement(By.xpath(acessar)).click();
+    }
+
+    public boolean validaMsgBoasVindas() {
+        return driver.findElement(By.xpath(mensagemBoasVindas)).isDisplayed();
+    }
 
 }

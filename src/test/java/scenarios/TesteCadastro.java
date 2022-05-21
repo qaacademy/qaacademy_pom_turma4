@@ -1,6 +1,7 @@
 package scenarios;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +35,11 @@ public class TesteCadastro {
         homePage.clicarCriarComSaldo();
         homePage.clicarCadastrar();
         homePage.clicarFecharContaCriada();
+        homePage.preencheEmailLogin();
+        homePage.preencheSenhaLogin();
+        homePage.clicarAcessar();
+        Assert.assertTrue(homePage.validaMsgBoasVindas());
+
     }
 
     @After
