@@ -38,6 +38,7 @@ public class TesteCadastro {
         homePage.preencheEmailLogin();
         homePage.preencheSenhaLogin();
         homePage.clicarAcessar();
+
         Assert.assertTrue(homePage.validaMsgBoasVindas());
 
     }
